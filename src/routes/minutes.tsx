@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
-import { CTABand, PageHeader, Pipeline, Section, StatementGrid } from "@/components/site/blocks";
-import { MinutesScene } from "@/components/site/MinutesScene";
+import {
+  CTABand,
+  PageHeader,
+  Pipeline,
+  Section,
+  StatementGrid,
+} from "@/components/site/blocks";
+import { MasterCaptureOverview } from "@/components/site/MasterCaptureOverview";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { RAGChatbot } from "@/components/site/RAGChatbot";
 import { TeacherDashboard } from "@/components/site/TeacherDashboard";
@@ -46,21 +52,35 @@ function MinutesPage() {
 
       <div className="shell pb-8">
         <Reveal>
-          <MinutesScene />
+          <MasterCaptureOverview />
         </Reveal>
       </div>
 
       <Section index="01" eyebrow="How it works">
         <Reveal>
-          <h2 className="display-lg max-w-2xl">From the room to the knowledge graph.</h2>
+          <h2 className="display-lg max-w-2xl">
+            From the room to the knowledge graph.
+          </h2>
         </Reveal>
         <div className="mt-14">
           <Pipeline
             stages={[
-              { label: "Capture", items: ["lecture", "discussion", "material"] },
-              { label: "Understand", items: ["speech", "terminology", "intent"] },
-              { label: "Extract", items: ["concepts", "explanations", "obligations"] },
-              { label: "Connect", items: ["course", "syllabus", "prior lectures"] },
+              {
+                label: "Capture",
+                items: ["lecture", "discussion", "material"],
+              },
+              {
+                label: "Understand",
+                items: ["speech", "terminology", "intent"],
+              },
+              {
+                label: "Extract",
+                items: ["concepts", "explanations", "obligations"],
+              },
+              {
+                label: "Connect",
+                items: ["course", "syllabus", "prior lectures"],
+              },
               { label: "Use", items: ["ask", "revise", "act"] },
             ]}
           />
@@ -72,7 +92,9 @@ function MinutesPage() {
 
       <Section index="02" eyebrow="Surfaces">
         <Reveal>
-          <h2 className="display-lg max-w-2xl">Five ways the course becomes usable.</h2>
+          <h2 className="display-lg max-w-2xl">
+            Five ways the course becomes usable.
+          </h2>
         </Reveal>
         <div className="mt-14">
           <StatementGrid
@@ -116,8 +138,9 @@ function MinutesPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="lead mb-8">
-                Not more recordings to watch. Minutes turns lectures into searchable, connected
-                knowledge students can question and revise from.
+                Not more recordings to watch. Minutes turns lectures into
+                searchable, connected knowledge students can question and revise
+                from.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -132,11 +155,16 @@ function MinutesPage() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-violet mt-0.5 flex-shrink-0">→</span>
-                  <span>AI doubt-solving assistant grounded in their own lectures (RAG-based)</span>
+                  <span>
+                    AI doubt-solving assistant grounded in their own lectures
+                    (RAG-based)
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Searchable lecture history across the whole course</span>
+                  <span>
+                    Searchable lecture history across the whole course
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
@@ -144,7 +172,10 @@ function MinutesPage() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Important announcements auto-detected (deadlines, materials, exam info)</span>
+                  <span>
+                    Important announcements auto-detected (deadlines, materials,
+                    exam info)
+                  </span>
                 </li>
               </ul>
             </Reveal>
@@ -166,8 +197,9 @@ function MinutesPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="lead mb-8">
-                No more guesswork about pace, coverage, or what students are actually asking. Minutes
-                surfaces what matters from the lectures you're already giving.
+                No more guesswork about pace, coverage, or what students are
+                actually asking. Minutes surfaces what matters from the lectures
+                you're already giving.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -190,11 +222,17 @@ function MinutesPage() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Reduced repetitive workload (fewer repeat doubts, less manual note-writing)</span>
+                  <span>
+                    Reduced repetitive workload (fewer repeat doubts, less
+                    manual note-writing)
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Analytics on their own teaching pace, content depth, and student engagement</span>
+                  <span>
+                    Analytics on their own teaching pace, content depth, and
+                    student engagement
+                  </span>
                 </li>
               </ul>
             </Reveal>
@@ -211,13 +249,15 @@ function MinutesPage() {
           <div>
             <Reveal>
               <h2 className="display-lg max-w-xl mb-6">
-                Department-wide academic intelligence they currently have no way to access.
+                Department-wide academic intelligence they currently have no way
+                to access.
               </h2>
             </Reveal>
             <Reveal delay={100}>
               <p className="lead mb-8">
-                From individual classrooms to department-level insights. Minutes gives administrators
-                the visibility they need without invasive surveillance.
+                From individual classrooms to department-level insights. Minutes
+                gives administrators the visibility they need without invasive
+                surveillance.
               </p>
             </Reveal>
             <Reveal delay={150}>
@@ -232,19 +272,27 @@ function MinutesPage() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Teaching-progress monitoring across the department</span>
+                  <span>
+                    Teaching-progress monitoring across the department
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Centralized, searchable institutional knowledge repository</span>
+                  <span>
+                    Centralized, searchable institutional knowledge repository
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Academic transparency and data-driven decision support</span>
+                  <span>
+                    Academic transparency and data-driven decision support
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <span className="text-ember mt-0.5 flex-shrink-0">→</span>
-                  <span>Support for accreditation/compliance documentation</span>
+                  <span>
+                    Support for accreditation/compliance documentation
+                  </span>
                 </li>
               </ul>
             </Reveal>
@@ -266,8 +314,8 @@ function MinutesPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="lead mb-8">
-                We're working with early higher-education partners as Minutes develops. Join the
-                waitlist to get early access when we launch.
+                We're working with early higher-education partners as Minutes
+                develops. Join the waitlist to get early access when we launch.
               </p>
             </Reveal>
             <Reveal delay={200}>
