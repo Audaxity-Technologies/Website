@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { CTABand, PageHeader, Pipeline, Section, StatementGrid } from "@/components/site/blocks";
 import { MinutesScene } from "@/components/site/MinutesScene";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
 
 const title = "Minutes — AI Academic Intelligence Platform | Audaxity";
 const description =
@@ -126,6 +127,52 @@ function MinutesPage() {
               Academic intelligence infrastructure — a course that can be questioned, connected and
               acted on.
             </p>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section id="waitlist" index="05" eyebrow="Get early access">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <Reveal>
+              <h2 className="display-lg max-w-xl mb-6">
+                Bring Minutes to your institution.
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="lead mb-8">
+                We're working with early higher-education partners as Minutes develops. Join the
+                waitlist to get early access when we launch.
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <WaitlistForm />
+            </Reveal>
+          </div>
+          <Reveal delay={150} className="flex items-center">
+            <div className="w-full">
+              <div className="border border-border bg-background p-8">
+                <h4 className="text-lg font-medium mb-4">What you'll get:</h4>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <span className="text-signal mt-1">→</span>
+                    <span>Early access to Minutes for your department</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-signal mt-1">→</span>
+                    <span>Direct input on product development</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-signal mt-1">→</span>
+                    <span>Priority support during onboarding</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-signal mt-1">→</span>
+                    <span>Exclusive updates on our progress</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </Reveal>
         </div>
       </Section>
