@@ -4,6 +4,8 @@ import { Reveal, useScrollProgress } from "@/components/site/Reveal";
 import { CTABand, Pipeline, Section, StatementGrid } from "@/components/site/blocks";
 import { LensDemo } from "@/components/site/LensDemo";
 import { MinutesScene } from "@/components/site/MinutesScene";
+import { InformationDecay } from "@/components/site/InformationDecay";
+import { CaptureActDemo } from "@/components/site/CaptureActDemo";
 
 const title = "Audaxity Technologies — Making messy human knowledge actionable";
 const description =
@@ -210,9 +212,33 @@ function Home() {
             </span>
           ))}
         </Reveal>
+        <Reveal delay={240} className="mt-14">
+          <InformationDecay />
+        </Reveal>
       </Section>
 
-      <Section index="02" eyebrow="First product">
+      <Section index="02" eyebrow="The solution">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <Reveal>
+            <h2 className="display-lg max-w-xl">
+              The same conversation,
+              <br />
+              understood.
+            </h2>
+          </Reveal>
+          <Reveal delay={120} className="self-end">
+            <p className="lead">
+              Same exchange as above — this time run through the pattern. Tap each stage to see what
+              Audaxity extracts at that step.
+            </p>
+          </Reveal>
+        </div>
+        <Reveal delay={180} className="mt-14">
+          <CaptureActDemo />
+        </Reveal>
+      </Section>
+
+      <Section index="03" eyebrow="First product">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <Reveal>
@@ -245,7 +271,7 @@ function Home() {
         </div>
       </Section>
 
-      <Section index="03" eyebrow="The aha moment">
+      <Section index="04" eyebrow="The aha moment">
         <Reveal>
           <h2 className="display-lg max-w-2xl">
             Then something reads it properly.
@@ -261,7 +287,7 @@ function Home() {
         </div>
       </Section>
 
-      <Section index="04" eyebrow="The pattern">
+      <Section index="05" eyebrow="The pattern">
         <Reveal>
           <h2 className="display-lg max-w-2xl">Built around understanding.</h2>
         </Reveal>
@@ -288,7 +314,7 @@ function Home() {
         </Reveal>
       </Section>
 
-      <Section index="05" eyebrow="Why Audaxity">
+      <Section index="06" eyebrow="Why Audaxity">
         <Reveal>
           <h2 className="display-lg max-w-2xl">
             AI is useful when it understands what happened before.

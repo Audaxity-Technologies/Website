@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { CTABand, PageHeader, Section, StatementGrid } from "@/components/site/blocks";
+import { GuidingPrinciples } from "@/components/site/GuidingPrinciples";
+import { SixPhaseRoadmap } from "@/components/site/SixPhaseRoadmap";
 
 const title = "About — Why Audaxity exists";
 const description =
@@ -51,34 +53,12 @@ function AboutPage() {
       </Section>
 
       <Section index="02" eyebrow="Principles">
-        <StatementGrid
-          items={[
-            {
-              title: "Understanding before automation",
-              body: "Comprehension is a prerequisite, not a feature. Systems that act without context create work instead of removing it.",
-            },
-            {
-              title: "Structure creates leverage",
-              body: "Knowledge is valuable when it is connected. We optimise for relationships, not output volume.",
-            },
-            {
-              title: "Augmentation, not replacement",
-              body: "Teachers, students and professionals keep authorship. We remove the mechanical part of knowledge work.",
-            },
-            {
-              title: "Intelligence compounds",
-              body: "Every captured moment should make the next one more useful. Memory is the point.",
-            },
-            {
-              title: "Claims we can defend",
-              body: "We describe what we've built and what we intend to build, and we keep those two things clearly separated.",
-            },
-            {
-              title: "Depth over surface",
-              body: "One domain understood properly is worth more than ten integrations that understand nothing.",
-            },
-          ]}
-        />
+        <Reveal>
+          <h2 className="display-lg max-w-2xl mb-14">What we won't compromise on.</h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <GuidingPrinciples />
+        </Reveal>
       </Section>
 
       <Section index="03" eyebrow="Where we are">
@@ -91,6 +71,15 @@ function AboutPage() {
             education as the first environment. We're not publishing customer counts or metrics we
             haven't earned — if you want to see the work, ask us.
           </p>
+        </Reveal>
+      </Section>
+
+      <Section index="04" eyebrow="Roadmap">
+        <Reveal>
+          <h2 className="display-lg max-w-2xl mb-14">Where we're going.</h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <SixPhaseRoadmap />
         </Reveal>
       </Section>
 
