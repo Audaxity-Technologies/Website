@@ -12,39 +12,39 @@ type NodeDef = {
 
 const NODES: NodeDef[] = [
   // INPUT
-  { label: "VOICE", x: 0.05, y: 0.08, layer: 0, importance: 'minor' },
-  { label: "LECTURE", x: 0.08, y: 0.25, layer: 0, importance: 'normal' },
-  { label: "DOCUMENT", x: 0.04, y: 0.45, layer: 0, importance: 'minor' },
-  { label: "CONVERSATION", x: 0.08, y: 0.65, layer: 0, importance: 'normal' },
-  { label: "MESSAGE", x: 0.14, y: 0.82, layer: 0, importance: 'minor' },
-  { label: "EVENT", x: 0.20, y: 0.12, layer: 0, importance: 'normal' },
+  { label: "VOICE", x: 0.05, y: 0.04, layer: 0, importance: 'minor' },
+  { label: "LECTURE", x: 0.08, y: 0.20, layer: 0, importance: 'normal' },
+  { label: "DOCUMENT", x: 0.04, y: 0.38, layer: 0, importance: 'minor' },
+  { label: "CONVERSATION", x: 0.08, y: 0.56, layer: 0, importance: 'normal' },
+  { label: "MESSAGE", x: 0.14, y: 0.72, layer: 0, importance: 'minor' },
+  { label: "EVENT", x: 0.20, y: 0.08, layer: 0, importance: 'normal' },
 
   // UNDERSTANDING
-  { label: "SPEECH", x: 0.27, y: 0.06, layer: 1, importance: 'normal' },
-  { label: "LANGUAGE", x: 0.30, y: 0.22, layer: 1, importance: 'important' },
-  { label: "INTENT", x: 0.25, y: 0.40, layer: 1, importance: 'important' },
-  { label: "CONTEXT", x: 0.30, y: 0.58, layer: 1, importance: 'important' },
-  { label: "PEOPLE", x: 0.25, y: 0.76, layer: 1, importance: 'normal' },
-  { label: "MEANING", x: 0.40, y: 0.12, layer: 1, importance: 'important' },
+  { label: "SPEECH", x: 0.27, y: 0.02, layer: 1, importance: 'normal' },
+  { label: "LANGUAGE", x: 0.30, y: 0.18, layer: 1, importance: 'important' },
+  { label: "INTENT", x: 0.25, y: 0.34, layer: 1, importance: 'important' },
+  { label: "CONTEXT", x: 0.30, y: 0.50, layer: 1, importance: 'important' },
+  { label: "PEOPLE", x: 0.25, y: 0.66, layer: 1, importance: 'normal' },
+  { label: "MEANING", x: 0.40, y: 0.08, layer: 1, importance: 'important' },
 
   // INTELLIGENCE
-  { label: "CONCEPT", x: 0.48, y: 0.06, layer: 2, importance: 'important' },
-  { label: "RELATION", x: 0.50, y: 0.24, layer: 2, importance: 'normal' },
-  { label: "MEMORY", x: 0.46, y: 0.44, layer: 2, importance: 'important' },
-  { label: "KNOWLEDGE", x: 0.52, y: 0.62, layer: 2, importance: 'important' },
-  { label: "REASONING", x: 0.46, y: 0.80, layer: 2, importance: 'important' },
-  { label: "COURSE", x: 0.62, y: 0.12, layer: 2, importance: 'important' },
-  { label: "ENTITY", x: 0.64, y: 0.36, layer: 2, importance: 'normal' },
-  { label: "REFERENCE", x: 0.62, y: 0.58, layer: 2, importance: 'normal' },
+  { label: "CONCEPT", x: 0.48, y: 0.02, layer: 2, importance: 'important' },
+  { label: "RELATION", x: 0.50, y: 0.20, layer: 2, importance: 'normal' },
+  { label: "MEMORY", x: 0.46, y: 0.38, layer: 2, importance: 'important' },
+  { label: "KNOWLEDGE", x: 0.52, y: 0.54, layer: 2, importance: 'important' },
+  { label: "REASONING", x: 0.46, y: 0.70, layer: 2, importance: 'important' },
+  { label: "COURSE", x: 0.62, y: 0.08, layer: 2, importance: 'important' },
+  { label: "ENTITY", x: 0.64, y: 0.30, layer: 2, importance: 'normal' },
+  { label: "REFERENCE", x: 0.62, y: 0.50, layer: 2, importance: 'normal' },
 
   // ACTION
-  { label: "DECISION", x: 0.76, y: 0.06, layer: 3, importance: 'action' },
-  { label: "ANSWER", x: 0.82, y: 0.24, layer: 3, importance: 'action' },
-  { label: "TASK", x: 0.76, y: 0.42, layer: 3, importance: 'action' },
-  { label: "DEADLINE", x: 0.84, y: 0.58, layer: 3, importance: 'action' },
-  { label: "ACTION", x: 0.76, y: 0.76, layer: 3, importance: 'action' },
-  { label: "WORKFLOW", x: 0.92, y: 0.36, layer: 3, importance: 'action' },
-  { label: "OUTCOME", x: 0.92, y: 0.68, layer: 3, importance: 'action' },
+  { label: "DECISION", x: 0.76, y: 0.02, layer: 3, importance: 'action' },
+  { label: "ANSWER", x: 0.82, y: 0.20, layer: 3, importance: 'action' },
+  { label: "TASK", x: 0.76, y: 0.36, layer: 3, importance: 'action' },
+  { label: "DEADLINE", x: 0.84, y: 0.50, layer: 3, importance: 'action' },
+  { label: "ACTION", x: 0.76, y: 0.66, layer: 3, importance: 'action' },
+  { label: "WORKFLOW", x: 0.92, y: 0.30, layer: 3, importance: 'action' },
+  { label: "OUTCOME", x: 0.92, y: 0.58, layer: 3, importance: 'action' },
 ];
 
 const EDGES: [number, number][] = [
@@ -289,34 +289,43 @@ export function KnowledgeNetwork({
         if (!A || !B) return;
 
         /*
-         * Edges remain subtle but become increasingly visible
-         * as the network becomes structured.
+         * Edges animate from source to destination as network organizes.
+         * Each edge has a staggered start time based on its index.
          */
-        const alpha =
-          Math.max(0, ease - 0.12) * 0.9;
-
-        if (alpha <= 0.01) return;
+        const edgeDelay = ei * 0.02;
+        const edgeEase = Math.max(0, Math.min(1, (ease - edgeDelay) / (1 - edgeDelay)));
+        
+        if (edgeEase <= 0.01) return;
 
         const mx = (A.x + B.x) / 2;
+        const my = (A.y + B.y) / 2 - 14 * ease;
 
-        const my =
-          (A.y + B.y) / 2 -
-          14 * ease;
-
-        ctx.strokeStyle = `rgba(98,91,84,${
-          alpha * 0.45
-        })`;
+        ctx.strokeStyle = `rgba(98,91,84,${edgeEase * 0.45})`;
 
         ctx.beginPath();
 
         ctx.moveTo(A.x, A.y);
 
-        ctx.quadraticCurveTo(
-          mx,
-          my,
-          B.x,
-          B.y
-        );
+        // Draw partial curve based on edgeEase
+        if (edgeEase < 1) {
+          // Calculate intermediate point on quadratic bezier
+          const t = edgeEase;
+          const inv = 1 - t;
+          const px = inv * inv * A.x + 2 * inv * t * mx + t * t * B.x;
+          const py = inv * inv * A.y + 2 * inv * t * my + t * t * B.y;
+          
+          // Draw partial curve
+          const steps = 20;
+          for (let i = 1; i <= steps; i++) {
+            const stepT = (i / steps) * t;
+            const stepInv = 1 - stepT;
+            const stepX = stepInv * stepInv * A.x + 2 * stepInv * stepT * mx + stepT * stepT * B.x;
+            const stepY = stepInv * stepInv * A.y + 2 * stepInv * stepT * my + stepT * stepT * B.y;
+            ctx.lineTo(stepX, stepY);
+          }
+        } else {
+          ctx.quadraticCurveTo(mx, my, B.x, B.y);
+        }
 
         ctx.stroke();
 
@@ -324,7 +333,7 @@ export function KnowledgeNetwork({
         // TRAVELLING KNOWLEDGE / INFORMATION PULSE
         // ----------------------------------------------------------
 
-        if (!reduce && ease > 0.25) {
+        if (!reduce && edgeEase > 0.5) {
           const speed = 0.22;
 
           const k =
@@ -349,7 +358,7 @@ export function KnowledgeNetwork({
 
           const pulseAlpha =
             fade *
-            Math.max(0, ease - 0.25) *
+            (edgeEase - 0.5) * 2 *
             1.25;
 
           /*
