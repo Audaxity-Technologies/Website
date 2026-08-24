@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { KnowledgeNetwork } from "@/components/site/KnowledgeNetwork";
+import { ScrollNetwork } from "@/components/site/ScrollNetwork";
 import { Reveal, useScrollProgress } from "@/components/site/Reveal";
 import { CTABand, Pipeline, Section, StatementGrid } from "@/components/site/blocks";
 import { LensDemo } from "@/components/site/LensDemo";
@@ -25,21 +26,8 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 function Hero() {
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
-
-  /*
-   * The network is already connected when the hero loads.
-   * Scrolling doesn't "create" the network anymore.
-   * Instead, it increases structure, signal intensity and organization.
-   */
-  const order = Math.min(
-    1,
-    Math.max(0, 0.55 + progress * 0.45)
-  );
-
   return (
     <div
-      ref={ref}
       className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24"
     >
       <div
@@ -110,23 +98,20 @@ function Hero() {
         {/* 
          * KNOWLEDGE NETWORK
          *
-         * Larger than before because this is now a core part
-         * of the hero story rather than decorative texture.
-         *
-         * The network starts connected and becomes increasingly
-         * structured/intense as the user scrolls.
+         * Scroll-based animation: starts unstructured, becomes organized
+         * as user scrolls. Once complete, normal page scrolling resumes.
          */}
         <div
           className="
             relative
-            h-[440px]
-            sm:h-[520px]
-            lg:h-[640px]
-            xl:h-[700px]
+            h-[500px]
+            sm:h-[580px]
+            lg:h-[700px]
+            xl:h-[760px]
           "
         >
-          <div className="relative h-[400px] sm:h-[480px] lg:h-[620px]">
-            <KnowledgeNetwork order={0.55 + order * 0.45} labels={false} />
+          <div className="relative h-[460px] sm:h-[540px] lg:h-[660px]">
+            <ScrollNetwork />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-between">
               <span className="tech-label">Input</span>
               <span className="tech-label">Understanding</span>
