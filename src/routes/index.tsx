@@ -125,29 +125,15 @@ function Hero() {
             xl:h-[700px]
           "
         >
-          <KnowledgeNetwork
-            order={order}
-            labels
-            className="absolute inset-0"
-          />
-
-          {/* Layer labels */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-1 flex justify-between px-1">
-            <span className="tech-label">
-              Input
-            </span>
-
-            <span className="tech-label">
-              Understanding
-            </span>
-
-            <span className="tech-label">
-              Intelligence
-            </span>
-
-            <span className="tech-label text-signal">
-              Action
-            </span>
+          <div className="relative h-[400px] sm:h-[480px] lg:h-[620px]">
+            <KnowledgeNetwork order={0.55 + order * 0.45} labels={false} />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-between">
+              <span className="tech-label">Input</span>
+              <span className="tech-label">Understanding</span>
+              <span className="tech-label">Intelligence</span>
+              <span className="tech-label">Structure</span>
+              <span className="tech-label text-signal">Action</span>
+            </div>
           </div>
         </div>
       </div>

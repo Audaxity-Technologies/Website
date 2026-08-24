@@ -88,6 +88,55 @@
   --border: oklch(0.855 0.012 68); /* #D8D0C7 */
   --input: oklch(0.855 0.012 68);
   --ring: oklch(0.545 0.126 45.5);
+
+  /* Network colors - light theme */
+  --network-node: oklch(0.855 0.012 68);
+  --network-node-secondary: oklch(0.55 0.011 65);
+  --network-connection: oklch(0.55 0.011 65);
+  --network-pulse: oklch(0.58 0.14 45);
+}
+
+[data-theme="dark"] {
+  --background: oklch(0.21 0.008 65); /* #171512 warm dark */
+  --cream: oklch(0.23 0.008 65); /* #1F1C18 */
+  --paper: oklch(0.24 0.009 65); /* #211E1A */
+  --foreground: oklch(0.92 0.008 75); /* #F2EDE5 warm off-white */
+  --ink: oklch(0.92 0.008 75);
+  --charcoal: oklch(0.94 0.008 75); /* #F5F0E8 */
+
+  --card: oklch(0.24 0.009 65); /* #211E1A */
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.24 0.009 65);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.92 0.008 75); /* #F2EDE5 */
+  --primary-foreground: oklch(0.21 0.008 65); /* #171512 */
+  --secondary: oklch(0.24 0.009 65);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.24 0.009 65);
+  --muted-foreground: oklch(0.65 0.008 70); /* #A8A19A */
+  --accent: oklch(0.28 0.01 65);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.52 0.16 28);
+  --destructive-foreground: oklch(0.98 0.01 71);
+
+  --signal: oklch(0.58 0.12 45); /* #D86F38 burnt orange accent */
+  --signal-soft: oklch(0.28 0.01 65);
+
+  --ember: oklch(0.58 0.12 45); /* #D86F38 */
+  --ember-soft: oklch(0.28 0.01 65 0.2);
+  --violet: oklch(0.38 0.18 300); /* #6B2FA8 */
+  --violet-soft: oklch(0.28 0.01 65 0.15);
+
+  --border: oklch(0.28 0.008 68); /* #39342E */
+  --input: oklch(0.28 0.008 68);
+  --ring: oklch(0.58 0.12 45);
+
+  /* Network colors - dark theme */
+  --network-node: oklch(0.855 0.012 68); /* #D8D0C7 */
+  --network-node-secondary: oklch(0.55 0.011 65); /* #8F8982 */
+  --network-connection: oklch(0.45 0.008 65); /* #625B54 */
+  --network-pulse: oklch(0.6 0.12 45); /* #E47A3D */
 }
 
 @layer base {
@@ -199,6 +248,10 @@
   opacity: 0.55;
 }
 
+[data-theme="dark"] .hairline-grid {
+  opacity: 0.04;
+}
+
 /* ---------- Buttons ---------- */
 
 @utility btn-base {
@@ -226,6 +279,18 @@
   &:hover {
     background: var(--signal);
     border-color: var(--signal);
+  }
+
+  [data-theme="dark"] & {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid var(--primary);
+
+    &:hover {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: var(--primary-foreground);
+    }
   }
 }
 

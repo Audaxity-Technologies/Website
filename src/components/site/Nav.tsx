@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/site/ThemeToggle";
 
 const LINKS = [
   { to: "/platform", label: "Platform" },
@@ -48,6 +49,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+          <ThemeToggle />
           <Link to="/minutes" className="btn-base btn-solid !px-4 !py-2 text-[0.8rem]">
             Explore Minutes
           </Link>
@@ -88,6 +90,10 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
+            <div className="flex items-center gap-4 py-3 border-b border-border">
+              <span className="text-sm text-muted-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
             <Link
               to="/minutes"
               onClick={() => setOpen(false)}

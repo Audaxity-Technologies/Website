@@ -7,43 +7,44 @@ type NodeDef = {
   x: number;
   y: number;
   layer: 0 | 1 | 2 | 3;
+  importance?: 'minor' | 'normal' | 'important' | 'action';
 };
 
 const NODES: NodeDef[] = [
   // INPUT
-  { label: "VOICE", x: 0.05, y: 0.12, layer: 0 },
-  { label: "LECTURE", x: 0.08, y: 0.32, layer: 0 },
-  { label: "DOCUMENT", x: 0.04, y: 0.55, layer: 0 },
-  { label: "CONVERSATION", x: 0.08, y: 0.78, layer: 0 },
-  { label: "MESSAGE", x: 0.14, y: 0.92, layer: 0 },
-  { label: "EVENT", x: 0.20, y: 0.16, layer: 0 },
+  { label: "VOICE", x: 0.05, y: 0.12, layer: 0, importance: 'minor' },
+  { label: "LECTURE", x: 0.08, y: 0.32, layer: 0, importance: 'normal' },
+  { label: "DOCUMENT", x: 0.04, y: 0.55, layer: 0, importance: 'minor' },
+  { label: "CONVERSATION", x: 0.08, y: 0.78, layer: 0, importance: 'normal' },
+  { label: "MESSAGE", x: 0.14, y: 0.92, layer: 0, importance: 'minor' },
+  { label: "EVENT", x: 0.20, y: 0.16, layer: 0, importance: 'normal' },
 
   // UNDERSTANDING
-  { label: "SPEECH", x: 0.27, y: 0.10, layer: 1 },
-  { label: "LANGUAGE", x: 0.30, y: 0.28, layer: 1 },
-  { label: "INTENT", x: 0.25, y: 0.48, layer: 1 },
-  { label: "CONTEXT", x: 0.30, y: 0.68, layer: 1 },
-  { label: "PEOPLE", x: 0.25, y: 0.88, layer: 1 },
-  { label: "MEANING", x: 0.40, y: 0.16, layer: 1 },
+  { label: "SPEECH", x: 0.27, y: 0.10, layer: 1, importance: 'normal' },
+  { label: "LANGUAGE", x: 0.30, y: 0.28, layer: 1, importance: 'important' },
+  { label: "INTENT", x: 0.25, y: 0.48, layer: 1, importance: 'important' },
+  { label: "CONTEXT", x: 0.30, y: 0.68, layer: 1, importance: 'important' },
+  { label: "PEOPLE", x: 0.25, y: 0.88, layer: 1, importance: 'normal' },
+  { label: "MEANING", x: 0.40, y: 0.16, layer: 1, importance: 'important' },
 
   // INTELLIGENCE
-  { label: "CONCEPT", x: 0.48, y: 0.10, layer: 2 },
-  { label: "RELATION", x: 0.50, y: 0.30, layer: 2 },
-  { label: "MEMORY", x: 0.46, y: 0.52, layer: 2 },
-  { label: "KNOWLEDGE", x: 0.52, y: 0.72, layer: 2 },
-  { label: "REASONING", x: 0.46, y: 0.90, layer: 2 },
-  { label: "COURSE", x: 0.62, y: 0.16, layer: 2 },
-  { label: "ENTITY", x: 0.64, y: 0.42, layer: 2 },
-  { label: "REFERENCE", x: 0.62, y: 0.66, layer: 2 },
+  { label: "CONCEPT", x: 0.48, y: 0.10, layer: 2, importance: 'important' },
+  { label: "RELATION", x: 0.50, y: 0.30, layer: 2, importance: 'normal' },
+  { label: "MEMORY", x: 0.46, y: 0.52, layer: 2, importance: 'important' },
+  { label: "KNOWLEDGE", x: 0.52, y: 0.72, layer: 2, importance: 'important' },
+  { label: "REASONING", x: 0.46, y: 0.90, layer: 2, importance: 'important' },
+  { label: "COURSE", x: 0.62, y: 0.16, layer: 2, importance: 'important' },
+  { label: "ENTITY", x: 0.64, y: 0.42, layer: 2, importance: 'normal' },
+  { label: "REFERENCE", x: 0.62, y: 0.66, layer: 2, importance: 'normal' },
 
   // ACTION
-  { label: "DECISION", x: 0.76, y: 0.10, layer: 3 },
-  { label: "ANSWER", x: 0.82, y: 0.30, layer: 3 },
-  { label: "TASK", x: 0.76, y: 0.50, layer: 3 },
-  { label: "DEADLINE", x: 0.84, y: 0.66, layer: 3 },
-  { label: "ACTION", x: 0.76, y: 0.86, layer: 3 },
-  { label: "WORKFLOW", x: 0.92, y: 0.42, layer: 3 },
-  { label: "OUTCOME", x: 0.92, y: 0.76, layer: 3 },
+  { label: "DECISION", x: 0.76, y: 0.10, layer: 3, importance: 'action' },
+  { label: "ANSWER", x: 0.82, y: 0.30, layer: 3, importance: 'action' },
+  { label: "TASK", x: 0.76, y: 0.50, layer: 3, importance: 'action' },
+  { label: "DEADLINE", x: 0.84, y: 0.66, layer: 3, importance: 'action' },
+  { label: "ACTION", x: 0.76, y: 0.86, layer: 3, importance: 'action' },
+  { label: "WORKFLOW", x: 0.92, y: 0.42, layer: 3, importance: 'action' },
+  { label: "OUTCOME", x: 0.92, y: 0.76, layer: 3, importance: 'action' },
 ];
 
 const EDGES: [number, number][] = [
@@ -121,10 +122,17 @@ const EDGES: [number, number][] = [
   [25, 26],
 ];
 
-const INK = "#2B2620";
-const GRAY = "#6E6963";
-const SIGNAL = "#B85A2B";
-const BORDER = "#D8D0C7";
+function getThemeColors() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  return {
+    node: isDark ? 'rgb(216,208,199)' : 'rgb(216,208,199)',
+    nodeSecondary: isDark ? 'rgb(143,137,130)' : 'rgb(110,105,99)',
+    connection: isDark ? 'rgb(98,91,84)' : 'rgb(110,105,99)',
+    pulse: isDark ? 'rgb(228,122,61)' : 'rgb(184,90,43)',
+    signal: isDark ? 'rgb(216,111,56)' : 'rgb(184,90,43)',
+    border: isDark ? 'rgb(57,52,46)' : 'rgb(216,208,199)',
+  };
+}
 
 function hash(n: number) {
   const s = Math.sin(n * 127.1) * 43758.5453;
@@ -143,6 +151,7 @@ export function KnowledgeNetwork({
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const orderRef = useRef(order);
+  const themeRef = useRef(document.documentElement.getAttribute('data-theme'));
 
   orderRef.current = order;
 
@@ -205,6 +214,8 @@ export function KnowledgeNetwork({
       const ease = o * o * (3 - 2 * o);
 
       const time = reduce ? 0 : t / 1000;
+
+      const colors = getThemeColors();
 
       ctx.clearRect(0, 0, w, h);
 
@@ -292,7 +303,7 @@ export function KnowledgeNetwork({
           (A.y + B.y) / 2 -
           14 * ease;
 
-        ctx.strokeStyle = `rgba(110,105,99,${
+        ctx.strokeStyle = `rgba(98,91,84,${
           alpha * 0.45
         })`;
 
@@ -345,7 +356,7 @@ export function KnowledgeNetwork({
            * Small orange particle represents information
            * travelling from one concept to another.
            */
-          ctx.fillStyle = `rgba(184,90,43,${pulseAlpha})`;
+          ctx.fillStyle = colors.pulse.replace(')', `,${pulseAlpha})`).replace('rgb', 'rgba');
 
           ctx.beginPath();
 
@@ -373,12 +384,16 @@ export function KnowledgeNetwork({
          * receive the signal/orange treatment.
          */
         const isSignal =
-          n.layer === 3 ||
-          (n.layer === 2 && i % 2 === 0);
+          n.importance === 'action' ||
+          n.importance === 'important';
+
+        const baseRadius = n.importance === 'minor' ? 2.5 : 
+                          n.importance === 'normal' ? 3.5 :
+                          n.importance === 'important' ? 4.5 : 5.5;
 
         const r =
-          3 +
-          (isSignal ? 1.2 : 0) *
+          baseRadius +
+          (isSignal ? 0.8 : 0) *
             ease;
 
         // Main node
@@ -392,10 +407,11 @@ export function KnowledgeNetwork({
           Math.PI * 2
         );
 
-        ctx.fillStyle =
-          isSignal && ease > 0.5
-            ? SIGNAL
-            : INK;
+        const nodeColor = isSignal && ease > 0.5
+          ? colors.signal
+          : (n.importance === 'minor' ? colors.nodeSecondary : colors.node);
+
+        ctx.fillStyle = nodeColor;
 
         ctx.globalAlpha =
           0.35 +
@@ -422,22 +438,20 @@ export function KnowledgeNetwork({
             Math.PI * 2
           );
 
-          ctx.strokeStyle = `rgba(216,208,199,${
-            (ease - 0.45) * 1.4
-          })`;
+          ctx.strokeStyle = colors.border.replace(')', `,${(ease - 0.45) * 1.4})`).replace('rgb', 'rgba');
 
           ctx.stroke();
         }
 
-        // Labels
+        // Labels - only show if explicitly requested and not in hero
         if (labels && !mobile) {
           ctx.font =
             "500 9.5px 'IBM Plex Mono', monospace";
 
           ctx.fillStyle =
             isSignal && ease > 0.6
-              ? SIGNAL
-              : GRAY;
+              ? colors.signal
+              : colors.nodeSecondary;
 
           ctx.globalAlpha =
             Math.max(
@@ -460,7 +474,7 @@ export function KnowledgeNetwork({
       // ------------------------------------------------------------
 
       if (ease > 0.6) {
-        ctx.strokeStyle = BORDER;
+        ctx.strokeStyle = colors.border;
 
         ctx.globalAlpha =
           (ease - 0.6) * 1.2;
@@ -500,6 +514,22 @@ export function KnowledgeNetwork({
       ro.disconnect();
     };
   }, [labels]);
+
+  // Listen for theme changes and redraw
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme !== themeRef.current) {
+        themeRef.current = currentTheme;
+        // Force redraw by toggling a small state change
+      }
+    };
+
+    const observer = new MutationObserver(handleThemeChange);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <canvas
