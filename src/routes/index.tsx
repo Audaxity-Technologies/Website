@@ -28,15 +28,15 @@ export const Route = createFileRoute("/")({
 function Hero() {
   return (
     <div
-      className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24"
+      className="relative overflow-hidden pt-16 pb-16 md:pt-24 md:pb-24"
     >
       <div
         aria-hidden
         className="hairline-grid pointer-events-none absolute inset-0"
       />
 
-      <div className="shell relative grid items-center gap-12 lg:grid-cols-[0.95fr_1.15fr]">
-        <div className="relative z-10">
+      <div className="shell relative grid items-start gap-12 lg:grid-cols-[0.95fr_1.15fr]">
+        <div className="relative z-10 pt-8 md:pt-12">
           <Reveal>
             <p className="tech-label">
               Audaxity Technologies — Intelligence Systems
