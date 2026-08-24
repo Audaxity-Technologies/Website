@@ -112,12 +112,12 @@ function Hero() {
         >
           <div className="relative h-[460px] sm:h-[540px] lg:h-[660px]">
             <ScrollNetwork />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-between">
-              <span className="tech-label">Input</span>
-              <span className="tech-label">Understanding</span>
-              <span className="tech-label">Intelligence</span>
-              <span className="tech-label">Structure</span>
-              <span className="tech-label text-signal">Action</span>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-between px-4">
+              <span className="tech-label text-xs">Input</span>
+              <span className="tech-label text-xs">Understanding</span>
+              <span className="tech-label text-xs">Intelligence</span>
+              <span className="tech-label text-xs">Structure</span>
+              <span className="tech-label text-xs text-signal">Action</span>
             </div>
           </div>
         </div>
